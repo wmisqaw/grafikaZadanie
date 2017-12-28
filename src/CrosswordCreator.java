@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
 public class CrosswordCreator {
+    private static char[][] words;
 
 
     public static void main(String[] args) {
         String temp;
         boolean pom = false;
         char arrayChanged[];
-        /*char words[][] = {  {'A','A','S','P','O','D','L','Z','N','O','S','T','O','H','R','A','D','A','S',},
+        char words1[][] = {  {'A','A','S','P','O','D','L','Z','N','O','S','T','O','H','R','A','D','A','S',},
                             {'B','N','L','C','A','D','A','R','O','P','A','E','S','L','L','C','K','O','K',},
                             {'I','I','A','R','I','T','A','S','M','O','V','P','R','A','V','I','D','L','O',},
                             {'L','L','L','M','A','T','K','A','J','M','A','N','R','V','P','N','I','A','K',},
@@ -17,9 +18,9 @@ public class CrosswordCreator {
                             {'K','T','A','V','T','U','L','P','N','A','R','N','J','M','I','S','T','O','P',},
                             {'R','S','R','I','O','K','C','O','T','O','L','O','K','K','G','E','I','Z','E',},
                             {'E','E','A','C','L','O','A','E','J','K','P','K','A','Z','A','R','N','U','R',},
-                            {'S','M','Z','E','V','P','O','K','O','J','Y','R','A','V','O','T','A','M','A',}};*/
+                            {'S','M','Z','E','V','P','O','K','O','J','Y','R','A','V','O','T','A','M','A',}};
 
-        char words[][] = { {'S','E','O','E','D','U','T','I','G','N','O','L',},
+        char words2[][] = { {'S','E','O','E','D','U','T','I','G','N','O','L',},
                 {'I','I','N','T','E','R','N','E','T','S','A','G',},
                 {'N','H','G','T','I','I','O','S','P','N','O','G',},
                 {'O','R','N','N','O','C','E','O','D','E','T','U',},
@@ -32,6 +33,18 @@ public class CrosswordCreator {
                 {'A','R','O','X','S','H','I','N','T','S','M','T',},
                 {'N','L','A','T','I','T','U','D','E','D','I','H',}};
 
+        switch (levelChosing()) {
+            case "1":
+                System.out.println("User chosen level 1");
+                words = words1;
+                break;
+            case "2":
+                System.out.println("User chosen level 2");
+                words = words2;
+                break;
+            default:
+                System.out.println("Wrong input");
+        }
 
         show_box(words);
         temp = input_data();
@@ -46,6 +59,14 @@ public class CrosswordCreator {
 
 
     }
+
+    public static String levelChosing(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Choose crossword 1 or 2 : ");
+        String level = input.next();
+        return level;
+    }
+
 
     public static void show_box(char[][] words){
         System.out.println("Search words");
