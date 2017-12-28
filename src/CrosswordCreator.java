@@ -19,6 +19,19 @@ public class CrosswordCreator {
                             {'E','E','A','C','L','O','A','E','J','K','P','K','A','Z','A','R','N','U','R',},
                             {'S','M','Z','E','V','P','O','K','O','J','Y','R','A','V','O','T','A','M','A',}};
 
+        /*char words2[][] = { {'S','E','O','E','D','U','T','I','G','N','O','L',},
+                {'I','I','N','T','E','R','N','E','T','S','A','G',},
+                {'N','H','G','T','I','I','O','S','P','N','O','G',},
+                {'O','R','N','N','O','C','E','O','D','E','T','U',},
+                {'I','E','F','C','A','E','I','M','S','W','R','B',},
+                {'T','W','O','H','K','L','A','K','A','A','O','L',},
+                {'A','E','E','U','E','R','O','D','T','R','F','E',},
+                {'G','I','I','R','K','O','E','H','E','V','S','V',},
+                {'I','V','E','O','B','N','L','E','L','S','P','A',},
+                {'V','E','I','G','N','I','T','S','I','L','A','R',},
+                {'A','R','O','X','S','H','I','N','T','S','M','T',},
+                {'N','L','A','T','I','T','U','D','E','D','I','H',}};*/
+
 
         show_box(words);
         temp = input_data();
@@ -48,8 +61,8 @@ public class CrosswordCreator {
     public static String input_data(){
         Scanner input = new Scanner(System.in);
         System.out.print("input data : ");
-        String tampung_nama = input.next();
-        String upper = tampung_nama.toUpperCase();
+        String input_word = input.next();
+        String upper = input_word.toUpperCase();
         return  upper;
     }
 
@@ -65,13 +78,13 @@ public class CrosswordCreator {
                     }
                 }
                 else {
-                    x =0;
+                    x = 0;
                 }
             }
         }
-        for (int i = 0; i < 11; i++){
-            for (int j = 0; j < 19; j++){
-                if (words[i][j] == arrayChanged[x]){
+        for (int i = 0; i < 19; i++){
+            for (int j = 0; j < 11; j++){
+                if (words[j][i] == arrayChanged[x]){
                     x = x + 1;
                     if (x == length){
                         pom = true;
@@ -80,20 +93,20 @@ public class CrosswordCreator {
 
                 }
                 else {
-                x = 0;
+                    x = 0;
                 }
-                }
+            }
         }
-    return false;
+        return false;
     }
 
     public static void result_checker(boolean a, String temp){
-     if (a){
-        System.out.println(temp + " = Exists");
-     }
-     else {
-         System.out.println(temp + " = Does not exists");
-     }
+        if (a){
+            System.out.println(temp + " = Exists");
+        }
+        else {
+            System.out.println(temp + " = Does not exists");
+        }
     }
 }
 
