@@ -7,7 +7,7 @@ public class CrosswordCreator {
         String temp;
         boolean pom = false;
         char arrayChanged[];
-        char words[][] = {  {'A','A','S','P','O','D','L','Z','N','O','S','T','O','H','R','A','D','A','S',},
+        /*char words[][] = {  {'A','A','S','P','O','D','L','Z','N','O','S','T','O','H','R','A','D','A','S',},
                             {'B','N','L','C','A','D','A','R','O','P','A','E','S','L','L','C','K','O','K',},
                             {'I','I','A','R','I','T','A','S','M','O','V','P','R','A','V','I','D','L','O',},
                             {'L','L','L','M','A','T','K','A','J','M','A','N','R','V','P','N','I','A','K',},
@@ -17,9 +17,9 @@ public class CrosswordCreator {
                             {'K','T','A','V','T','U','L','P','N','A','R','N','J','M','I','S','T','O','P',},
                             {'R','S','R','I','O','K','C','O','T','O','L','O','K','K','G','E','I','Z','E',},
                             {'E','E','A','C','L','O','A','E','J','K','P','K','A','Z','A','R','N','U','R',},
-                            {'S','M','Z','E','V','P','O','K','O','J','Y','R','A','V','O','T','A','M','A',}};
+                            {'S','M','Z','E','V','P','O','K','O','J','Y','R','A','V','O','T','A','M','A',}};*/
 
-        /*char words2[][] = { {'S','E','O','E','D','U','T','I','G','N','O','L',},
+        char words[][] = { {'S','E','O','E','D','U','T','I','G','N','O','L',},
                 {'I','I','N','T','E','R','N','E','T','S','A','G',},
                 {'N','H','G','T','I','I','O','S','P','N','O','G',},
                 {'O','R','N','N','O','C','E','O','D','E','T','U',},
@@ -30,7 +30,7 @@ public class CrosswordCreator {
                 {'I','V','E','O','B','N','L','E','L','S','P','A',},
                 {'V','E','I','G','N','I','T','S','I','L','A','R',},
                 {'A','R','O','X','S','H','I','N','T','S','M','T',},
-                {'N','L','A','T','I','T','U','D','E','D','I','H',}};*/
+                {'N','L','A','T','I','T','U','D','E','D','I','H',}};
 
 
         show_box(words);
@@ -40,6 +40,10 @@ public class CrosswordCreator {
         boolean searching = searching(words, length, temp, arrayChanged, pom);
         result_checker(searching, temp);
 
+        //nahradit namiesto 11 a 19 ....done
+        System.out.println(words.length);
+        System.out.println(words[0].length);
+
 
     }
 
@@ -48,9 +52,9 @@ public class CrosswordCreator {
         System.out.println("-----------------------------------------");
 
 
-        for (int i = 0; i < 11; i++){
+        for (int i = 0; i < words.length; i++){
             System.out.print("| ");
-            for (int j = 0; j < 19; j++){
+            for (int j = 0; j < words[0].length; j++){
                 System.out.print(words[i][j]+" ");
             }
             System.out.println("|");
@@ -68,8 +72,8 @@ public class CrosswordCreator {
 
     public static boolean searching(char words[][], int length, String temp, char[] arrayChanged, boolean pom){
         int x = 0;
-        for (int i = 0; i < 11; i++){
-            for (int j = 0; j < 19; j++){
+        for (int i = 0; i < words.length; i++){
+            for (int j = 0; j < words[0].length; j++){
                 if (words[i][j] == arrayChanged[x]){
                     x = x + 1;
                     if (x == length){
@@ -82,8 +86,8 @@ public class CrosswordCreator {
                 }
             }
         }
-        for (int i = 0; i < 19; i++){
-            for (int j = 0; j < 11; j++){
+        for (int i = 0; i < words[0].length; i++){
+            for (int j = 0; j < words.length; j++){
                 if (words[j][i] == arrayChanged[x]){
                     x = x + 1;
                     if (x == length){
